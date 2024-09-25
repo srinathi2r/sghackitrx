@@ -1,4 +1,4 @@
-ximport streamlit as st
+import streamlit as st
 from src.registration import user_registration
 from src.dashboard import professional_dashboard
 from src.image import ocr_page
