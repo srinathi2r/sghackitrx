@@ -19,5 +19,4 @@ pytesseract
 onnxruntime==1.15.0
 tf2onnx
 plotly
-OpenAI
-get_close_matches
+openai
