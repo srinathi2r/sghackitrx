@@ -247,27 +247,30 @@ def main():
             if option == "Login":
                 st.subheader("Login Page")
                 username = st.text_input("Username", label_visibility="hidden")
-                password = st.text_input("Password", type="password", label_visibility="hidden")
-            
+                password = st.text_input(
+                    "Password", type="password", label_visibility="hidden"
+                )
+
                 col_login, col_singpass = st.columns([1, 1])
                 with col_login:
                     if st.button("Login"):
                         user_data = check_user_credentials(username, password)
                         if user_data:
                             user_id, user_role = user_data
+                            st.success(f"Logged in as {user_role}")
                             st.session_state.logged_in = True
                             st.session_state.user_role = user_role
-                            st.session_state.user_id = user_id  # Store user_id in session
+                            st.session_state.user_id = (
+                                user_id  # Store user_id in session
+                            )
                             if user_role == "Doctor/Nurse":
                                 set_page("professional")
                             elif user_role == "Patient":
                                 set_page("ocr_only")
                             elif user_role == "Admin":
                                 set_page("admin")
-                            st.experimental_rerun()  # Force rerun to update the page based on new state
                         else:
                             st.error("Invalid username or password.")
-
                 with col_singpass:
                     if st.button("Login with Singpass", key="singpass"):
                         st.success("Login with Singpass is currently not implemented.")
