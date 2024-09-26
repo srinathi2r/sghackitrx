@@ -1,6 +1,6 @@
 # sghackitrx
 Repository for MISS Bot - A tool we developed for SGHackitRx 2024
-# Wound Care Management Dashboard
+# MISSY Bot - Your Personalied AI Breast Cancer Nurse
 ## Overview
 This repository contains the code for a Wound Care Management Dashboard built using Streamlit. The dashboard aims to assist healthcare professionals in managing post-operative care for patients by providing recommendations based on wound images and facilitating communication between patients and medical staff.
 
