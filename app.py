@@ -16,14 +16,6 @@ def get_base64_image(image_path):
     with open(image_path, "rb") as img_file:
         return base64.b64encode(img_file.read()).decode()
 
-#Function to force a rerun by updating a session state variable
-def force_rerun():
-    st.session_state.rerun = not st.session_state.get("rerun", False)
-
-# Place this at the start of your code to initialize the `rerun` state if not present
-if "rerun" not in st.session_state:
-    st.session_state.rerun = False
-
 # Encode the image to base64
 image_path = "MISSY Bot.png"  # Adjust this path if the image is in a different location
 base64_image = get_base64_image(image_path)
@@ -195,7 +187,7 @@ def logout():
     st.session_state.page = "home"
     st.session_state.user_role = None
     st.session_state.user_id = None  # Clear the user_id on logout
-    force_rerun()
+    st.experimental_rerun()  # Rerun the page to update the display
 
 def show_logout_button():
     col1, col2 = st.columns([8, 2])
