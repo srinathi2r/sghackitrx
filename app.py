@@ -21,6 +21,23 @@ def get_base64_image(image_path):
 image_path = "MISSY Bot.png"  # Adjust this path if the image is in a different location
 base64_image = get_base64_image(image_path)
 
+# Custom CSS styles for the title and markdown
+st.markdown("""
+    <style>
+    .big-font {
+        font-size:50px !important;
+        font-family:'Arial', sans-serif;
+        color: #ff6347;
+    }
+    .medium-font {
+        font-size:30px !important;
+        font-family:'Georgia', serif;
+        color: #8B0000;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+
 # Customizing the background image with base64 encoding
 st.markdown(
     f"""
@@ -36,7 +53,6 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-
 
 # Function to get OpenAI API key
 def get_api_key():
@@ -234,8 +250,9 @@ def main():
 
     if not st.session_state.logged_in:
         if page == "home":
-            st.title("MISSY BOT")
-            st.markdown("### Your Personalised AI Breast Care Nurse")
+            # Using the custom styles in your Streamlit app
+            st.markdown('<p class="big-font">MISSY BOT</p>', unsafe_allow_html=True)
+            st.markdown('<p class="medium-font">Your Personalised AI Breast Care Nurse</p>', unsafe_allow_html=True)
 
             col1, col2, col3 = st.columns([6, 1, 1])
             with col1:
