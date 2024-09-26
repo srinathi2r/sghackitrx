@@ -187,7 +187,7 @@ def logout():
     st.session_state.page = "home"
     st.session_state.user_role = None
     st.session_state.user_id = None  # Clear the user_id on logout
-    st.experimental_rerun()  # Rerun the page to update the display
+    st.rerun()  # Rerun the page to update the display
 
 def show_logout_button():
     col1, col2 = st.columns([8, 2])
@@ -285,7 +285,7 @@ def main():
                                 set_page("ocr_only")
                             elif user_role == "Admin":
                                 set_page("admin")
-                            st.experimental_rerun()  # Rerun the page to update the display
+                            st.rerun()  # Rerun the page to update the display
                         else:
                             st.error("Invalid username or password.")
                 with col_singpass:
@@ -345,20 +345,20 @@ def main():
                         st.session_state.user_query = (
                             ""  # Clear the input after submission
                         )
-                        st.experimental_rerun()  # Rerun the page to update the display
+                        st.rerun()  # Rerun the page to update the display
 
                     # Clear response when "Clear Response" button is clicked
                     if clear_response:
                         st.session_state.missy_response = ""
                         st.session_state.user_query = ""
-                        st.experimental_rerun()  # Rerun the page to update the display
+                        st.rerun()  # Rerun the page to update the display
 
                     # Close the "Ask MISSY" form when "Close Form" button is clicked
                     if close_form:
                         st.session_state.missy_response = ""
                         st.session_state.user_query = ""
                         st.session_state.show_missy_form = False
-                        st.experimental_rerun()  # Rerun the page to update the display
+                        st.rerun()  # Rerun the page to update the display
 
             # Display response if available
             if st.session_state.missy_response:
