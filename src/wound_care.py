@@ -6,14 +6,13 @@ import os
 # Image-recommendation mapping
 image_recommendations = {
     "image1.png": "Hi Madam A, please do not worry. From what I observed, you can just reinforce the dressing as what we have taught you to and you don't have to rush back to Breast Centre. You can update me here later today on how you have been doing.",
-    "image2.png": "Hi Madam A, Advise to return to Breast Centre for change of dressing during office hours. After office hours, proceed to ward 35 between 10am to 8pm.",
-    "image3.png": "Hi Madam A, Advise to return to Breast Centre for change of dressing during office hours. After office hours, proceed to ward 35 between 10am to 8pm.",
-    "image4.png": "Hi Madam A, Advise to return to Breast Centre for change of dressing during office hours. After office hours, proceed to ward 35 between 10am to 8pm.",
-    "image5.png": "Hi Madam A, Advise to reinforce drain site dressing on her own, using the set of gauze and plaster (given to patient upon discharge) given by the Breast Care Nurses. Return to Breast Centre in the next working day.",
-    "image6.png": "Hi Madam A, Advise to return to Breast Centre for change of drain bottle during office hours.After office hours, proceed to ward 35 between 10am to 8pm.",
+    "image2.png": "Advise to return to Breast Centre for change of dressing during office hours. After office hours, proceed to ward 35 between 10am to 8pm.",
+    "image3.png": "Advise to return to Breast Centre for change of dressing during office hours. After office hours, proceed to ward 35 between 10am to 8pm.",
+    "image4.png": "Advise to return to Breast Centre for change of dressing during office hours. After office hours, proceed to ward 35 between 10am to 8pm.",
+    "image5.png": "Advise to reinforce drain site dressing on her own, using the set of gauze and plaster (given to patient upon discharge) given by the Breast Care Nurses. Return to Breast Centre in the next working day.",
+    "image6.png": "Advise to return to Breast Centre for change of drain bottle during office hours.After office hours, proceed to ward 35 between 10am to 8pm.",
     "image7.png": "Reassurance given to patient, drain bottle vacuum intact. Appointment with Breast Care Nurse remain.",
 }
-
 
 # Function to calculate similarity between two images
 def image_similarity(image1, image2):
@@ -37,16 +36,11 @@ def wound_care_analysis():
             known_images[image_name] = img.copy()  # Copy to avoid file handle issues
 
     # Streamlit Interface for Upload
-    uploaded_image = st.file_uploader(
-        "Upload a wound image", type=["jpg", "jpeg", "png"]
-    )
+    uploaded_image = st.file_uploader("Upload a wound image", type=["jpg", "jpeg", "png"])
 
     if uploaded_image is not None:
         # Display the uploaded image as a small picture
         uploaded_image = Image.open(uploaded_image)
-        st.image(
-            uploaded_image, caption="Uploaded Image", width=200
-        )  # Adjust width as needed
 
         # Initialize variables to track the best match
         max_similarity = 0
@@ -59,11 +53,29 @@ def wound_care_analysis():
                 max_similarity = similarity
                 best_match = image_name
 
-        # Display the best match recommendation if similarity is above a threshold
-        similarity_threshold = 0.9  # Adjust threshold as needed
-        if max_similarity >= similarity_threshold:
-            st.info(f"Recommendation: {image_recommendations[best_match]}")
-        else:
-            st.warning(
-                "No high similarity found for this image. Please consult a medical professional."
-            )
+        # Create two columns
+        col1, col2 = st.columns([1, 2])  # Adjust column width ratio as needed
+
+        with col1:
+            st.image(uploaded_image, caption="Uploaded Image", use_column_width=True)
+
+        with col2:
+            # Display the best match recommendation if similarity is above a threshold
+            similarity_threshold = 0.9  # Adjust threshold as needed
+            if max_similarity >= similarity_threshold:
+                # Adding an orange box with blue font around the recommendation
+                st.markdown(
+                    f"""
+                    <div style="border: 2px solid orange; padding: 10px; border-radius: 5px; background-color: #FFFAE5;">
+                        <p style="color: blue; font-weight: bold;">Recommendation: {image_recommendations[best_match]}</p>
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
+            else:
+                st.warning("No high similarity found for this image. Please consult a medical professional.")
+
+
+
+# Run the wound care analysis function
+wound_care_analysis()
