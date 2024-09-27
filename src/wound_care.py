@@ -62,7 +62,7 @@ def wound_care_analysis():
         # Display the best match recommendation if similarity is above a threshold
         similarity_threshold = 0.9  # Adjust threshold as needed
         if max_similarity >= similarity_threshold:
-            st.popup(f"Recommendation: {image_recommendations[best_match]}")
+            st.success(f"Recommendation: {image_recommendations[best_match]}")
         else:
             st.warning(
                 "No high similarity found for this image. Please consult a medical professional."
