@@ -5,12 +5,12 @@ import os
 
 # Image-recommendation mapping
 image_recommendations = {
-    "image1.png": "Advise to reinforce drain site dressing on her own, using the set of gauze and plaster (given to patient upon discharge) given by the Breast Care Nurses. Return to Breast Centre in the next working day.",
-    "image2.png": "Advise to return to Breast Centre for change of dressing during office hours. After office hours, proceed to ward 35 between 10am to 8pm.",
-    "image3.png": "Advise to return to Breast Centre for change of dressing during office hours. After office hours, proceed to ward 35 between 10am to 8pm.",
-    "image4.png": "Advise to return to Breast Centre for change of dressing during office hours. After office hours, proceed to ward 35 between 10am to 8pm.",
-    "image5.png": "Advise to reinforce drain site dressing on her own, using the set of gauze and plaster (given to patient upon discharge) given by the Breast Care Nurses. Return to Breast Centre in the next working day.",
-    "image6.png": "Advise to return to Breast Centre for change of drain bottle during office hours.After office hours, proceed to ward 35 between 10am to 8pm.",
+    "image1.png": "Hi Madam A, please do not worry. From what I observed, you can just reinforce the dressing as what we have taught you to and you don't have to rush back to Breast Centre. You can update me here later today on how you have been doing.",
+    "image2.png": "Hi Madam A, Advise to return to Breast Centre for change of dressing during office hours. After office hours, proceed to ward 35 between 10am to 8pm.",
+    "image3.png": "Hi Madam A, Advise to return to Breast Centre for change of dressing during office hours. After office hours, proceed to ward 35 between 10am to 8pm.",
+    "image4.png": "Hi Madam A, Advise to return to Breast Centre for change of dressing during office hours. After office hours, proceed to ward 35 between 10am to 8pm.",
+    "image5.png": "Hi Madam A, Advise to reinforce drain site dressing on her own, using the set of gauze and plaster (given to patient upon discharge) given by the Breast Care Nurses. Return to Breast Centre in the next working day.",
+    "image6.png": "Hi Madam A, Advise to return to Breast Centre for change of drain bottle during office hours.After office hours, proceed to ward 35 between 10am to 8pm.",
     "image7.png": "Reassurance given to patient, drain bottle vacuum intact. Appointment with Breast Care Nurse remain.",
 }
 
